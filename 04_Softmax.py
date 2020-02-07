@@ -1,11 +1,11 @@
-#mnist数据集分类例子，包括数字序列形式的NN、独热编码形式的NN、独热编码形式的多层NN，共三个例子
+#mnist数据集分类例子，包括数字序列形式的NN、独热编码形式的NN，共两个例子
 
 import tensorflow as tf  
 import pandas as pd
 import matplotlib.pyplot as plt
 
 
-(train_image,train_label),(test_image,test_label)=tf.keras.datasets.fashion_mnist.load_data()
+(train_image,train_label),(test_image,test_label)=tf.keras.datasets.fashion_mnist.load_data() #数据读入
 
 #数据查看（维度、特征）
 #数据预处理（归一化，扁平化处理）
@@ -37,7 +37,6 @@ model.compile(optimizer = 'adam',
               loss = 'sparse_categorical_crossentropy', #数字序列的交叉熵
               metrics = ['acc']
 )
-
 
 model.fit(train_image,train_label,epochs = 10)
 
