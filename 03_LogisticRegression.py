@@ -11,7 +11,7 @@ data = pd.read_csv("dataset/credit-a.csv")
 data.head()
 
 x = data.iloc[:,:-1]
-y = data.iloc[:,-1].replace(-1,0)    #将-1的label替换成1
+y = data.iloc[:,-1].replace(-1,0)    #将-1的label替换成0
 
 
 
@@ -29,7 +29,4 @@ model.compile(optimizer = 'adam',
 
 histiory = model.fit(x,y,epochs = 100)
 
-
-
 plt.plot(histiory.epoch,histiory.history.get('acc'))
-
